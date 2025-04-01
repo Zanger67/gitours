@@ -140,41 +140,44 @@ def combine_maps(reference_map, usage_map):
 
 def generate_origin_map(reference_map):
     """
-    Build a dictionary mapping each symbol (functions, variables, classes, and methods)
-    to a list of file(s) where it is defined.
+    Build a dictionary mapping each symbol to a list of dictionaries
+    containing its defining file and type (function, class, method, variable).
     """
     origin_map = defaultdict(list)
     for file, info in reference_map.items():
         defs = info.get("definitions", {})
 
         for symbol in defs.get("functions", []):
-            origin_map[symbol].append(file)
+            origin_map[symbol].append({"file": file, "type": "function"})
 
         for symbol in defs.get("variables", []):
-            origin_map[symbol].append(file)
+            origin_map[symbol].append({"file": file, "type": "variable"})
 
         for cls in defs.get("classes", []):
-            origin_map[cls.get("name")].append(file)
+            origin_map[cls.get("name")].append({"file": file, "type": "class"})
 
             for method in cls.get("methods", []):
-                origin_map[method].append(file)
-
+                origin_map[method].append({"file": file, "type": "method"})
     return origin_map
+
 
 def generate_global_cross_reference(reference_map, usage_map):
     """
-    For each symbol in the usage map, determine its origin using the origin map,
-    and produce entries that indicate "File A uses symbol X from File B".
+    For each symbol in the usage map, determine its origin and type,
+    and return cross-reference entries that include file usage and symbol type.
     """
     origin_map = generate_origin_map(reference_map)
     cross_refs = []
     for symbol, usage_files in usage_map.items():
         if symbol in origin_map:
             for usage_file in usage_files:
-                for origin_file in origin_map[symbol]:
+                for origin in origin_map[symbol]:
+                    origin_file = origin["file"]
+                    symbol_type = origin["type"]
                     if usage_file != origin_file:
                         cross_refs.append({
                             "symbol": symbol,
+                            "symbol_type": symbol_type,
                             "used_in": usage_file,
                             "defined_in": origin_file
                         })

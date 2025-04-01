@@ -1632,12 +1632,12 @@
       ],
       "GetProduct_A_Category": [],
       "Get_A_CategoryName": [
-        "store_main.py",
-        "InDMCategories.py"
+        "InDMCategories.py",
+        "store_main.py"
       ],
       "GetCategoryIDsInDB": [
-        "store_main.py",
         "InDMCategories.py",
+        "store_main.py",
         "purchase.py"
       ],
       "GetCategoryNumProduct": [
