@@ -1,0 +1,337 @@
+[
+  {
+    "symbol": "GetCategoryIDsInDB",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "GetCategoryIDsInDB",
+    "used_in": "InDMCategories.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "GetCategoryIDsInDB",
+    "used_in": "purchase.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "Get_A_CategoryName",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "Get_A_CategoryName",
+    "used_in": "InDMCategories.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "GetProductInfoByCTGName",
+    "used_in": "InDMCategories.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "GetProductInfo",
+    "used_in": "purchase.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "GetProductInfoByPName",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "GetProductInfoByPName",
+    "used_in": "purchase.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "GetCategoryNumProduct",
+    "used_in": "purchase.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "GetPaymentMethodTokenKeysCleintID",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "GetUserIDsInDB",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "GetAdminIDsInDB",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "GetProductIDs",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "shop_items",
+    "used_in": "store_main.py",
+    "defined_in": "purchase.py"
+  },
+  {
+    "symbol": "orderdata",
+    "used_in": "store_main.py",
+    "defined_in": "purchase.py"
+  },
+  {
+    "symbol": "GetAllUnfirmedOrdersUser",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "UpdateOrderComment",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "GetOrderDetails",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "GetProduct_A_AdminID",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "GetOrderIDs_Buyer",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "GetAdminUsernamesInDB",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "GetProductInfos",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "GetPaymentMethodsAll",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "get_category_products",
+    "used_in": "store_main.py",
+    "defined_in": "InDMCategories.py"
+  },
+  {
+    "symbol": "purchase_a_products",
+    "used_in": "store_main.py",
+    "defined_in": "purchase.py"
+  },
+  {
+    "symbol": "GetUserWalletInDB",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "AddAuser",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "AddProduct",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "GetProductImageLink",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "GetProductName",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "GetProductNumber",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "GetProductDescription",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "GetProductPrice",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "GetProductQuantity",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "GetProductNumberName",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "GetOrderInfo",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "GetOrderIDs",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "AllUsers",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "AllAdmins",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "AllProducts",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "AllOrders",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "UpdateProductName",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "UpdateProductDescription",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "UpdateProductPrice",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "AddCategory",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "UpdateProductCategory",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "UpdateProductproductdownloadlink",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "UpdateProductQuantity",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "UpdateProductQuantity",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "delete_a_product",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "GetUsersInfo",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "AddPaymentMethod",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "UpdatePaymentMethodToken",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "UpdatePaymentMethodSecret",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "AddAdmin",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "UpdateProductproductimagelink",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "delete_a_category",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "Update_A_Category",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "delete_an_order",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "delete_an_order",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "UpdateProductKeysFile",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "UpdateOrderPurchasedKeys",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "UpdateOrderPaymentMethod",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "Update_All_ProductCategory",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "GetProductDownloadLink",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  },
+  {
+    "symbol": "AddOrder",
+    "used_in": "store_main.py",
+    "defined_in": "InDMDevDB.py"
+  }
+]
