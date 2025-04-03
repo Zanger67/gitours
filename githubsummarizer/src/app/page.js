@@ -1,7 +1,10 @@
 "use client"
 
+import '@ant-design/v5-patch-for-react-19';
 import { useState } from "react"
 import { exampleData, downloadJSONFile } from "./exampleText"
+import { message } from "antd"
+import { GithubFilled, DownloadOutlined, UploadOutlined } from "@ant-design/icons"
 
 export default function page() {
     const [jsonFileText, setJsonFileText] = useState('')
@@ -9,7 +12,9 @@ export default function page() {
     return (
         <div>
             <div className="header">
+                <GithubFilled style={{fontSize: 50}}/>
                 <h1>GitHub Summarizer</h1>
+                
             </div>
             <div className="inputBox">
                 <h2>Input link to GitHub Repository to Summarize</h2>
@@ -27,18 +32,20 @@ export default function page() {
                     <button
                         onClick={() => {
                             if (inputLink.startsWith('https://')) {
-                                alert('success')
+                                message.success('Summarization Successful')
                                 setJsonFileText(JSON.stringify(exampleData))
                             } else {
-                                alert('URL must take the pattern "https://*"')
+                                message.error('URL must take the pattern "https://*"')
                             }
                         }}
-                    >Submit</button>
+                    >
+                        <UploadOutlined style={{marginRight: 5}}/>
+                        Submit
+                        </button>
                     <h2>Output JSON File</h2>
                     <textarea
                         readOnly
                         value={jsonFileText}
-                        // value={buildExampleJSON(exampleData.repoName, exampleData.repoOwner, exampleData.link)}
                         rows={10}
                         cols={100}
                         placeholder="JSON Text File Content goes here"
@@ -47,14 +54,17 @@ export default function page() {
                     <button
                         onClick={() => {
                             if (jsonFileText == '') {
-                                alert('No JSON file data exists')
+                                message.error('No JSON file data exists')
                             } else {
                                 const jsonFile = new File([JSON.stringify(exampleData)], 'exampleData.json', {type: 'text/plain'})
                                 const jsonFileName = 'exampleData.json'
                                 downloadJSONFile(jsonFile, jsonFileName)
                             }
                         }}
-                    >Download JSON</button>
+                    >
+                        <DownloadOutlined style={{marginRight: 5}}/>
+                        Download JSON
+                    </button>
                 </div>
             </div>
         </div>
