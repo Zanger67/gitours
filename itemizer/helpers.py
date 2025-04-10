@@ -5,6 +5,7 @@ class InvalidUrlError(Exception):
 
 
 _URL_TEMPLATE = 'https://github.com/{owner}/{repo}/{tree_const}/{branch}'
+_URL_TEMPLATE_CLONING = 'https://github.com/{owner}/{repo}.git'
 
 def clean_url(url: str) -> str :
     orig_url = url
@@ -24,7 +25,26 @@ def clean_url(url: str) -> str :
         tree_const=tree_const,
         branch=branch
     )
+
+def convert_git_url_to_cloner(url: str) -> str :
+    """
+    Converts a GitHub URL to a format suitable for cloning.
+    """
+    orig_url = url
+    if 'github.com/' in url:
+        url = url[url.find('github.com/') + len('github.com/'):]
     
+    url = url.split('/')
+    
+    if len(url) > 4 or len(url) < 2 :
+        raise InvalidUrlError(f'URL is invalid: {orig_url}')  
+    
+    owner, repo, _, _ = url + ['tree', 'main'][len(url) - 2:]
+    
+    return _URL_TEMPLATE_CLONING.format(
+        owner=owner,
+        repo=repo,
+    )
     
     
 def main() -> None :

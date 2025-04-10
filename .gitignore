@@ -1,3 +1,5 @@
 *_map.json
 cross_reference.json
+*/*_map.json
+*/cross_reference.json
 *.pyc

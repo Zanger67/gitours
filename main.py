@@ -28,8 +28,8 @@ def main(override_url: str = None) -> None :
 
     # Clean the URL
     try:
-        cleaned_url = helpers.clean_url(github_url)
-        print(f"Cleaned URL: {cleaned_url}")
+        cleaned_url = helpers.convert_git_url_to_cloner(github_url)
+        print(f"Cleaned clonable URL: {cleaned_url}")
     except helpers.InvalidUrlError as e:
         raise e
     print()
