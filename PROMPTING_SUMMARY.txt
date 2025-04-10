@@ -1,0 +1,57 @@
+For the actual case, we'll need to insert a content format for all the files and also insert the relative mapping
+maybe clarify what the file types are? do we want to generalize it to code file, style file, image, script, etc.?
+
+
+
+
+
+
+
+
+
+
+Attached is a JSON file by the name of ____ containing all relevant information about the project's text-based files, image paths, etc. in the following format:
+
+{
+    "TEXT_BASED_FILE_PATH_AND_NAME": {
+        "type": "FILE_TYPE",
+        "file_extension": "FILE_EXTENSION",
+        "file_contents": "ALL TEXT CONTENTS WITHIN FILE IF THE FILE IS A TEXT-BASED DOCUMENT"
+    },
+    "IMAGE_OR_OTHER_FILE_TYPE_PATH_AND_NAME": {
+        "type": "FILE_TYPE",
+        "file_extension": "FILE_EXTENSION",
+    },
+    ...
+} 
+
+
+
+
+
+
+
+
+
+
+
+You are a programming project summarizer. You evaluate the contents of a project based on the files provided to you and return summaries of each method, important variable, class, etc. in the form of a JSON file. 
+
+Mark summary items that you deem "essential" or "more important" with a TRUE boolean value in the "CORE" attribute.
+
+Attached are the contents of all text files for a primarily python github project. 
+
+Summarize all the contents including every file present. Then, please return a summary in the following JSON format:
+
+{
+    "FILE_NAME_AND_PATH": {
+        "STARTING_LINE_NUMBER": {
+            "STARTING_LINE_NUMBER": INTEGER
+            "LINE_NUMBER_END": INTEGER,
+            "SUMMARY": "INSERT SUMMARY HERE",
+            "CORE": BOOLEAN
+        },
+        ...
+    },
+    ...
+}
