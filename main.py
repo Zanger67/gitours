@@ -2,6 +2,7 @@
 
 
 # Component imports
+import shutil
 from itemizer import helpers
 from itemizer import itemizer
 
@@ -36,8 +37,14 @@ def main(override_url: str = None) -> None :
     
     
     # Clone repo data
-    itemizer.generate_repo_mappings(cleaned_url)
+    mapping_dirs = itemizer.generate_repo_mappings(repo_url=cleaned_url, save_record=True)
     
+    print(f'Mapping directories: {mapping_dirs}')
+    
+    
+    
+    shutil.rmtree(mapping_dirs)
+    print("Temporary output folder cleaned up.")
     
     
     pass

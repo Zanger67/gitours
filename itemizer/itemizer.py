@@ -184,44 +184,93 @@ def generate_global_cross_reference(reference_map, usage_map):
                         })
     return cross_refs
 
-def generate_repo_mappings(repo_url: str) -> None :
+def generate_repo_mappings(repo_url: str, save_record: bool = False) -> str :
     temp_dir = tempfile.mkdtemp()
     print(f"Cloning into temp directory: {temp_dir}")
+    
+    temp_dir_outputs = tempfile.mkdtemp()
+    print(f"Created temporary directory for outputs: {temp_dir_outputs}")
 
-    try:
+    try : # Try finally to ensure cleanup of tempfiles from cloning
         subprocess.run(["git", "clone", repo_url, temp_dir], check=True)
         project_path = temp_dir
+
+        
+        print(f'{temp_dir = }')
+        print(f'{temp_dir_outputs = }')
+        print(f'{project_path = }')
+        
+        file_names_temp = {
+            'reference_map': os.path.join(temp_dir_outputs, 'reference_map.json'),
+            'usage_map': os.path.join(temp_dir_outputs, 'usage_map.json'),
+            'combined_map': os.path.join(temp_dir_outputs, 'combined_map.json'),
+            'cross_reference': os.path.join(temp_dir_outputs, 'cross_reference.json')
+        }
+        file_names = {
+            'reference_map': os.path.join('data', 'reference_map.json'),
+            'usage_map': os.path.join('data', 'usage_map.json'),
+            'combined_map': os.path.join('data', 'combined_map.json'),
+            'cross_reference': os.path.join('data', 'cross_reference.json')
+        }
+
+        print("Analyzing project for definitions and imports...")
+        reference_map = analyze_project(project_path)
+        with open(file_names_temp['reference_map'], "w", encoding="utf-8") as f:
+            json.dump(reference_map, f, indent=2)
+        print(f"reference_map.json saved to {file_names_temp['reference_map']}")
+
+        print("Analyzing project for usage information...")
+        usage_map = analyze_usages(project_path)
+        with open(file_names_temp['usage_map'], "w", encoding="utf-8") as f:
+            json.dump(usage_map, f, indent=2)
+        print(f"usage_map.json saved to {file_names_temp['usage_map']}")
+
+        print("Combining reference and usage maps...")
+        combined_map = combine_maps(reference_map, usage_map)
+        with open(file_names_temp['combined_map'], "w", encoding="utf-8") as f:
+            json.dump(combined_map, f, indent=2)
+        print(f"combined_map.json saved to {file_names_temp['combined_map']}")
+
+        print("Generating global cross-reference map...")
+        cross_reference = generate_global_cross_reference(reference_map, usage_map)
+        with open(file_names_temp['cross_reference'], "w", encoding="utf-8") as f:
+            json.dump(cross_reference, f, indent=2)
+        print(f"cross_reference.json saved to {file_names_temp['cross_reference']}")
+        
+        
+        
+        if save_record :
+            print("Saving all maps to non-temp data directory...")
+            if not os.path.exists('data') :
+                os.mkdir('data')
+            for key, value in file_names.items():
+                shutil.copy(file_names_temp[key], value)
+                print(f"Saved '{key}' to '{value}'")
+
     except subprocess.CalledProcessError:
         print("Failed to clone the repository.")
+        print(f'Removing temporary directory for outputs: {temp_dir_outputs}')
         exit()
+    finally : 
+        shutil.rmtree(temp_dir)
+        print(f"Removing temporary directory for cloning: {temp_dir}")
 
-    print("Analyzing project for definitions and imports...")
-    reference_map = analyze_project(project_path)
-    with open("reference_map.json", "w", encoding="utf-8") as f:
-        json.dump(reference_map, f, indent=2)
-    print("reference_map.json saved.")
-
-    print("Analyzing project for usage information...")
-    usage_map = analyze_usages(project_path)
-    with open("usage_map.json", "w", encoding="utf-8") as f:
-        json.dump(usage_map, f, indent=2)
-    print("usage_map.json saved.")
-
-    print("Combining reference and usage maps...")
-    combined_map = combine_maps(reference_map, usage_map)
-    with open("combined_map.json", "w", encoding="utf-8") as f:
-        json.dump(combined_map, f, indent=2)
-    print("combined_map.json saved.")
-
-    print("Generating global cross-reference map...")
-    cross_reference = generate_global_cross_reference(reference_map, usage_map)
-    with open("cross_reference.json", "w", encoding="utf-8") as f:
-        json.dump(cross_reference, f, indent=2)
-    print("cross_reference.json saved.")
-
-    shutil.rmtree(temp_dir)
-    print("Temporary repo folder cleaned up.")
     print("All maps have been successfully generated and saved!")
+    print("Temporary output folder contents:")
+    for file_name in os.listdir(temp_dir_outputs):
+        print(f" - {file_name}")
+    print()
+    
+    return temp_dir_outputs
+        
+        
+        # print(f'{os.listdir(temp_dir_outputs) = }')
+        
+        # shutil.rmtree(temp_dir_outputs)
+        # print("Temporary output folder cleaned up.")
+        
+    
+    return 
 
 def main(repo_url: str) -> None :
     generate_repo_mappings(repo_url)
