@@ -1,6 +1,7 @@
 import os
 import ast
 import json
+import tempfile, shutil, subprocess
 from collections import defaultdict
 from tqdm import tqdm
 
@@ -183,10 +184,7 @@ def generate_global_cross_reference(reference_map, usage_map):
                         })
     return cross_refs
 
-if __name__ == "__main__":
-    import tempfile, shutil, subprocess
-
-    repo_url = 'https://github.com/indmdev/Free-Telegram-Store-Bot'
+def generate_repo_mappings(repo_url: str) -> None :
     temp_dir = tempfile.mkdtemp()
     print(f"Cloning into temp directory: {temp_dir}")
 
@@ -224,3 +222,9 @@ if __name__ == "__main__":
     shutil.rmtree(temp_dir)
     print("Temporary repo folder cleaned up.")
     print("All maps have been successfully generated and saved!")
+
+def main(repo_url: str) -> None :
+    generate_repo_mappings(repo_url)
+
+if __name__ == "__main__":
+    main()

@@ -28,8 +28,8 @@ def clean_url(url: str) -> str :
     
     
 def main() -> None :
-    # test = 'https://github.com/indmdev/Free-Telegram-Store-Bot'
-    test = 'https://github.com/indmdev/Free-Telegram-Store-Bot/smt/smt/smt'
+    test = 'https://github.com/indmdev/Free-Telegram-Store-Bot'
+    test_err = 'https://github.com/indmdev/Free-Telegram-Store-Bot/smt/smt/smt'
 
     print(clean_url(test))
 
