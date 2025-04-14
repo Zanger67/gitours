@@ -4,3 +4,9 @@ cross_reference.json
 */cross_reference.json
 *.pyc
 
+*.env
+*/*.env.*
+
+temp_output*.txt
+*.tour
+*/*.tour

@@ -13,6 +13,8 @@ def clean_url(url: str) -> str :
         url = url[url.find('github.com/') + len('github.com/'):]
     
     url = url.split('/')
+    if url[-1].endswith('.git'):
+        url[-1] = url[-1][:-4]
     
     if len(url) > 4 or len(url) < 2 :
         raise InvalidUrlError(f'URL is invalid: {orig_url}')  
@@ -35,7 +37,9 @@ def convert_git_url_to_cloner(url: str) -> str :
         url = url[url.find('github.com/') + len('github.com/'):]
     
     url = url.split('/')
-    
+    if url[-1].endswith('.git'):
+        url[-1] = url[-1][:-4]
+            
     if len(url) > 4 or len(url) < 2 :
         raise InvalidUrlError(f'URL is invalid: {orig_url}')  
     
