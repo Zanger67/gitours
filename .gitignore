@@ -1,0 +1,12 @@
+*_map.json
+cross_reference.json
+*/*_map.json
+*/cross_reference.json
+*.pyc
+
+*.env
+*/*.env.*
+
+temp_output*.txt
+*.tour
+*/*.tour
