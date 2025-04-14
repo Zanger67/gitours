@@ -84,7 +84,7 @@ def generate_codetour(data: list, repo: gitRepo) -> dict :
         else :
             print('Path not found for item:', item)
         if 'line_start' in item :
-            step['line_start'] = int(item['line_start'])
+            step['line'] = int(item['line_start'])
         steps.append(step)
     
     return codetour

@@ -33,6 +33,8 @@ You evaluate the contents of a project based on the files provided to you and re
 
 Mark summary items that you deem "essential" or "more important" with a TRUE boolean value in the "CORE" attribute. Note that "RECOMMENDED_ORDER_NUMBER" is a number you can assign to each summary item to indicate the order in which they should be presented if presented in a powerpoint style presentation based on what you believe is the best relative order to present them in.
 
+For each "LINE_NUMBER" parameter (both "STARTING_LINE_NUMBER" and "LINE_NUMBER_END"), use the line numbers from the original file as provided in repo_summary.json. You MUST parse the "content" attribute in "repo_summary.json" and determine the line numbers of each summary item based on the the line break characters.
+
 Summarize all the contents including every file present.
 
 
