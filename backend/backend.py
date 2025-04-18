@@ -1,4 +1,5 @@
 from flask import Flask, send_file, jsonify, after_this_request
+from flask_cors import CORS
 import dotenv
 import json
 import os
@@ -9,14 +10,14 @@ from programs import itemizer
 from programs import clone_summary as get_files
 from programs.codetours import generate_codetour, parse_prompt_1
 
-
 app = Flask(__name__)
+CORS(app, origins='http://localhost:3000') # Only accept requests from localhost port 3000 (React.js app)
 
 @app.route('/')
 def hello_world():
     return 'Hello, World!'
 
-@app.route('/retrieve/<path:repolink>')
+@app.route('/retrieve/<path:repolink>', methods=['GET'])
 def retrieve(repolink):
     dotenv.load_dotenv()
 
@@ -55,7 +56,8 @@ def retrieve(repolink):
                 print("Cleanup error:", e)
             return response
 
-        return send_file(output_path, mimetype='application/json', as_attachment=True)
+        return jsonify({'cross_reference': cross_reference, 'codetour': codetour}), 200
+        # return send_file(output_path, mimetype='application/json', as_attachment=True)
 
     except Exception as e:
         import traceback
