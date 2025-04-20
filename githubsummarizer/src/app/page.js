@@ -15,9 +15,9 @@ export default function page() {
     return (
         <div>
             <div className="header">
-                <GithubFilled style={{fontSize: 50}}/>
+                <GithubFilled style={{ fontSize: 50 }} />
                 <h1>GitHub Summarizer</h1>
-                
+
             </div>
             <div className="inputBox">
                 <h2>Input link to GitHub Repository to Summarize</h2>
@@ -26,22 +26,22 @@ export default function page() {
                         className="textInput"
                         value={inputLink}
                         disabled={inputDisabled}
-                        onChange={(e) => {setInputLink(e.target.value)}}
+                        onChange={(e) => { setInputLink(e.target.value) }}
                         type="url"
                         pattern="https://.*"
                         size="50"
                         placeholder="https://github.com/OwnerName/RepoName"
                         required
                     ></input>
-                <div className='Summarization Summary'
-                    style={{
-                        paddingBottom: 10,
-                        visibility: progressVisible
-                    }}>
-                    <h3>Now summarizing GitHub Repo at {inputLink}
-                        <LoadingOutlined />
-                    </h3>
-                </div>
+                    <div className='Summarization Summary'
+                        style={{
+                            paddingBottom: 10,
+                            visibility: progressVisible
+                        }}>
+                        <h3>Now summarizing GitHub Repo at {inputLink}
+                            <LoadingOutlined />
+                        </h3>
+                    </div>
                     <button
                         disabled={inputDisabled}
                         onClick={() => {
@@ -52,7 +52,7 @@ export default function page() {
                                 setDownloadDisabled(true)
                                 // Make a request to Python Backend
                                 // Example Input Link: https://github.com/indmdev/Free-Telegram-Store-Bot
-                                const backEndRoute = `http://localhost:5000/retrieve/${inputLink}`
+                                const backEndRoute = `http://127.0.0.1:5000/retrieve/${inputLink}`
                                 fetch(backEndRoute)
                                     .then(response => response.json()).then(data => {
                                         console.log(data);
@@ -76,9 +76,9 @@ export default function page() {
                             }
                         }}
                     >
-                        <UploadOutlined style={{marginRight: 5}}/>
+                        <UploadOutlined style={{ marginRight: 5 }} />
                         Submit
-                        </button>
+                    </button>
                     <h2>Output JSON File</h2>
                     <textarea
                         readOnly
@@ -94,13 +94,13 @@ export default function page() {
                             if (jsonFileText == '') {
                                 message.error('No JSON file data exists')
                             } else {
-                                const jsonFile = new File([JSON.stringify(exampleData)], 'exampleData.json', {type: 'text/plain'})
-                                const jsonFileName = 'exampleData.json'
+                                const jsonFile = new File([jsonFileText], 'exampleData.json', { type: 'text/plain' })
+                                const jsonFileName = 'AIGeneratedTour.tour'
                                 downloadJSONFile(jsonFile, jsonFileName)
                             }
                         }}
                     >
-                        <DownloadOutlined style={{marginRight: 5}}/>
+                        <DownloadOutlined style={{ marginRight: 5 }} />
                         Download JSON
                     </button>
                 </div>

@@ -56,7 +56,7 @@ def retrieve(repolink):
                 print("Cleanup error:", e)
             return response
 
-        return jsonify({'cross_reference': cross_reference, 'codetour': codetour}), 200
+        return jsonify(codetour), 200
         # return send_file(output_path, mimetype='application/json', as_attachment=True)
 
     except Exception as e:

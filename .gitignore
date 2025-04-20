@@ -6,7 +6,7 @@ cross_reference.json
 
 *.env
 */*.env.*
-
+githubsummarizer/.next
 temp_output*.txt
 *.tour
 */*.tour
