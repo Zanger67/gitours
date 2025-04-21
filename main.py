@@ -116,4 +116,4 @@ def tester() -> None :
 
 if __name__ == '__main__':
     tester()
-    # main()
+    # main(input("Enter the GitHub URL: "))
