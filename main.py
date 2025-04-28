@@ -106,14 +106,16 @@ def main(override_url: str = None) -> None :
     
 
 def tester() -> None :
-    test_url = 'https://github.com/indmdev/Free-Telegram-Store-Bot'
-    main(override_url=test_url)
+    # test_url = 'https://github.com/indmdev/Free-Telegram-Store-Bot'
+    # main(override_url=test_url)
 
 
     # test_err = 'https://github.com/indmdev/Free-Telegram-Store-Bot/smt/smt/smt'
     # main(override_url=test_err)    
 
 
+    main()
+    
 if __name__ == '__main__':
     tester()
     # main()
