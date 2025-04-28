@@ -2,12 +2,12 @@
 
 _This project was created by a group (Group 14) of Georgia Tech students for CS4675/6675._
 
-Gitours is a project designed to assist with smaller opensource projects by helping create codetour tours of a project, summarizing its overall structure and helping guide new potential maintainers to understanding how a project is designed, smoothing the onboarding process.
+Gitours is a project designed to assist with smaller opensource projects by helping create CodeTour tours of a project, summarizing its overall structure and helping guide new potential maintainers to understanding how a project is designed, smoothing the onboarding process.
 
-Codetours is an opensource VS Code extension maintained by Microsoft that allows the creation of in essence a guided tour / powerpoint which jumps from code segment to code segment, file to file, whilst also providing markdown summaries and notes.
+CodeTours is an opensource VS Code extension maintained by Microsoft that allows the creation of in essence a guided tour / powerpoint which jumps from code segment to code segment, file to file, whilst also providing markdown summaries and notes.
 
--   [VS Code Store URL](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour)
--   [GitHub Repo URL](https://github.com/microsoft/codetour)
+-   [VS Code Store CodeTour URL](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour)
+-   [CodeTour GitHub Repo URL](https://github.com/microsoft/codetour)
 
 ## Setup
 
@@ -86,6 +86,14 @@ python main.py
 You will be prompted for a github repo url. The output will be saved to `temp_output_codetour.tour` in the root directory.
 
 ![gitours_cli_output](images/gitours_cli_output.png)
+
+## Usage
+
+Please note that once a URL is provided, the program can take up to 3 minutes to run depending on the size of the project. Gitours is best suited to small to medium sized projects.
+
+The output JSON (`.tour`) file can be dragged into a cloned instance of the `main` branch of the provided GitHub repository. From there, ensure that [CodeTour](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour) is installed. Open the CodeTour tab in your VS Code editor, click the folder icon ("Open Tour File..."), and click your `.tour` file. From here, you may now run your CodeTour!
+
+![open_codetour_file](images/open_tour_file.png)
 
 ## Important App Files
 
